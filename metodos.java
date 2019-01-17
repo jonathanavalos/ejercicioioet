@@ -26,8 +26,9 @@ public class metodos {
                 parte2=partes[1];                
                 horas = parte2.split(",");
                 lectura= entrada.readLine();
-                int pa=metodos.this.mo_fr_no(dia,horas);
+                int pa=metodos.this.total(dia,horas);
                 System.out.println("The amount to pay "+nombre+" is: "+pa+" USD");
+                horast=0;totalm=0;totaln=0;totalt=0;totalfm=0;totalfn=0;totalft=0;pago=0;ihora1=0;ihora2=0;
             } 
             entrada.close();
         } catch (FileNotFoundException ex) {
@@ -39,7 +40,7 @@ public class metodos {
     }    
     
     
-    public int mo_fr_no (String dia,String [] horas){
+    public int total (String dia,String [] horas){
         int va=0,va1=0;
         for (int i=0;i<horas.length;i++) {
             dia=horas[i].substring(0,2);
@@ -47,8 +48,8 @@ public class metodos {
             hora2=horas[i].substring(8,10);
             ihora1=Integer.parseInt(hora1);
             ihora2=Integer.parseInt(hora2);
-            va+=metodos.this.valor(dia, ihora1, ihora2);
-            va1+=metodos.this.valor1(dia, ihora1, ihora2);
+            va=metodos.this.valor(dia, ihora1, ihora2);
+            va1=metodos.this.valor1(dia, ihora1, ihora2);
         }
         pago=va+va1;
         return pago;
